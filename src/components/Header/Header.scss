@@ -1,0 +1,9 @@
+.header{
+    display: flex;
+    gap: 15rem;
+    padding: 1rem 0;
+    &__logo{
+        color: white;
+        margin-left: 1rem;
+    }
+}
