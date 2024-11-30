@@ -1,8 +1,9 @@
-import './App.css'
+import './App.scss'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import MainPage from './pages/MainPage/MainPage'
+import WelcomePage from './pages/WelcomePage/WelcomePage'
 
 function App() {
 
@@ -11,7 +12,11 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route index element= {<MainPage/>} />
+        <Route path="/" element= {<WelcomePage/>} />
+        <Route path="/login" element=""/>
+        <Route path="/signup" element=""/>
+        <Route path="/main" element={<MainPage/>}/>
+        <Route path="" element=""/>
       </Routes>
     </BrowserRouter>
       

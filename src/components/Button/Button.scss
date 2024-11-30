@@ -1,0 +1,15 @@
+.button{
+    padding: 2rem 5rem;
+    border-radius: 3rem;
+
+    &--primary{
+        background-color: black;
+        border: 0.1rem solid white;
+        color: white;
+        text-align: center;
+        justify-content: center; 
+        font-size: 2rem;
+    }
+
+
+}
