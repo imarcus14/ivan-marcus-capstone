@@ -23,5 +23,15 @@
 
     }
 
+    &--tertiary{
+        padding: 0.5rem 5rem;
+        border-radius: 3rem;
+        background-color: black;
+        border: 0.1rem solid white;
+        color: white;
+        margin: 0 1rem 1rem 1rem;
+        font-family: "chewy";
+    }
+
 
 }
