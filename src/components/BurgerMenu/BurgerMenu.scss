@@ -1,3 +1,5 @@
+@use '../../styles/partials/global.scss' as *;
+
 .burger-menu{
     display: flex;
     align-items: center;
@@ -6,6 +8,7 @@
     gap: 0.5rem;
     &__text{
         color: white;
-        font-size: 1.5rem;
+        font-size: 1rem;
+        font-family: "Chewy";
     }
 }
