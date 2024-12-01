@@ -1,0 +1,43 @@
+[
+    {
+        "id":1,
+        "username":"Chilly",
+        "dogName":"Mochi",
+        "dogBreed":"Goldendoodle",
+        "dogAge":"11 Months",
+        "dogPersonality":"Anxious/Fearful",
+        "location":"Toronto",
+        "profileImage":"../src/assets/photos/Mochi.HEIC"
+    },
+    {
+        "id":2,
+        "username":"Chilly",
+        "dogName":"Mochi",
+        "dogBreed":"Goldendoodle",
+        "dogAge":"11 Months",
+        "dogPersonality":"Anxious/Fearful",
+        "location":"Toronto",
+        "profileImage":"../src/assets/photos/Mochi.HEIC"
+    },
+    {
+        "id":3,
+        "username":"Chilly",
+        "dogName":"Mochi",
+        "dogBreed":"Goldendoodle",
+        "dogAge":"11 Months",
+        "dogPersonality":"Anxious/Fearful",
+        "location":"Toronto",
+        "profileImage":"../src/assets/photos/Mochi.HEIC"
+    },
+    {
+        "id":4,
+        "username":"Chilly",
+        "dogName":"Mochi",
+        "dogBreed":"Goldendoodle",
+        "dogAge":"11 Months",
+        "dogPersonality":"Anxious/Fearful",
+        "location":"Toronto",
+        "profileImage":"../src/assets/photos/Mochi.HEIC"
+    }
+
+]

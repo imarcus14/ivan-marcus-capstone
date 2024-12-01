@@ -1,0 +1,30 @@
+.profile-card{
+    color: white;
+    display: flex;
+    margin: auto;
+    border: 0.063rem solid white;
+    width: 80%;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-family: "Chewy";
+
+    &__left{
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    &__right{
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        font-size: 0.6rem;
+        
+    }
+
+    &__container{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
