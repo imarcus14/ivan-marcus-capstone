@@ -15,7 +15,7 @@ const ProfileCards = () => {
 
     const fetchUserInfo = async () => {
         try{
-            const response = await fetch('../../../public/test.json')
+            const response = await fetch('/test.json')
             const data = await response.json();
             setUserInfo(data);
         }catch(e){

@@ -1,8 +1,16 @@
 import "./Button.scss"
 
+import { motion } from "motion/react";
+
 const Button = ({text, style}) => {
     return ( 
-        <button className={`button button--${style}`}>{text}</button>
+        <motion.button className={`button button--${style}`}
+        initial={{scale: 1}}
+        whileHover={{scale: 1.1}}
+        whileTap={{scale: 0.9}}
+        transition={{duration: 0.2}}>
+            {text}
+        </motion.button>
      );
 }
  
