@@ -41,7 +41,7 @@ const Chat = () => {
                 <Link to="/main">
                     <img className="chat__arrow" src={arrow} alt="Left arrow"/>
                 </Link>
-                <h2 className="chat__title">Your Chat with ...</h2>
+                <h2 className="chat__title">Username goes here</h2>
             </div>
             <div className="chat__messages">
                 {messages.map((message, index) => (
