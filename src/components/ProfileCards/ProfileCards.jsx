@@ -45,7 +45,7 @@ const ProfileCards = () => {
                     transition={{ duration: 0.3 }}>
                         <div className="profile-card__left">
                             <img src={user.profileImage} alt="Other peoples profile images"/>
-                            <Link to="">
+                            <Link to="/chat">
                                 <Button text="Chat"/>
                             </Link>
                         </div>
