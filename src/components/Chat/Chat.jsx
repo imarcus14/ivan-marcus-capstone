@@ -1,8 +1,8 @@
 import "./Chat.scss";
 
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import { Link } from "react-router-dom";
 import arrow from '../../assets/icons/left-arrow.svg'
 import {io} from 'socket.io-client';
 
@@ -11,6 +11,7 @@ const Chat = () => {
     const URL = import.meta.env.VITE_API_URL;
     const socket = io(URL);
 
+    const {username} = useParams();
     const [message, setMessage] = useState("");
     const [messages,setMessages] = useState([]);
 
@@ -41,7 +42,9 @@ const Chat = () => {
                 <Link to="/main">
                     <img className="chat__arrow" src={arrow} alt="Left arrow"/>
                 </Link>
-                <h2 className="chat__title">Username goes here</h2>
+           
+                    <h2 className="chat__title">Chat with {username}</h2>
+                
             </div>
             <div className="chat__messages">
                 {messages.map((message, index) => (

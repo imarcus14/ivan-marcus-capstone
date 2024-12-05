@@ -19,7 +19,7 @@ function App() {
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/signup" element={<SignupPage/>}/>
         <Route path="/main" element={<MainPage/>}/>
-        <Route path="/chat" element={<ChatPage/>}/>
+        <Route path="/chat/:username" element={<ChatPage/>}/>
       </Routes>
     </BrowserRouter>
       

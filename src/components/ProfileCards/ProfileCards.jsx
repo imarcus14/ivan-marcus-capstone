@@ -1,6 +1,6 @@
 import "./ProfileCards.scss";
 
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
@@ -11,7 +11,7 @@ const ProfileCards = () => {
 
     const [userInfo, setUserInfo] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null);
-
+    
 
     const fetchUserInfo = async () => {
         try{
@@ -45,8 +45,8 @@ const ProfileCards = () => {
                     transition={{ duration: 0.3 }}>
                         <div className="profile-card__left">
                             <img src={user.profileImage} alt="Other peoples profile images"/>
-                            <Link to="/chat">
-                                <Button text="Chat"/>
+                            <Link to={`/chat/${user.username}`}>
+                                <Button text="Chat" style="quaternary"/>
                             </Link>
                         </div>
                         <div className="profile-card__right">
@@ -59,17 +59,6 @@ const ProfileCards = () => {
                         </div>
                     </motion.div>
             ))}
-            {/* <div className="profile-card">
-                <img src="" alt="Other peoples profile images"/>
-                <div>
-                    <p className="profile-card__info"></p>
-                    <p className="profile-card__info"></p>
-                    <p className="profile-card__info"></p>
-                    <p className="profile-card__info"></p>
-                    <p className="profile-card__info"></p>
-                    <p className="profile-card__info"></p>
-                </div>
-            </div> */}
             
         </div>
      );
