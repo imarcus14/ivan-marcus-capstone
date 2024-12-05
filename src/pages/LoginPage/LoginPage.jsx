@@ -1,6 +1,7 @@
 import "./LoginPage.scss";
 
 import Button from "../../components/Button/Button";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
     return ( 
@@ -22,7 +23,9 @@ const LoginPage = () => {
                     <p>Forgot Password?</p>
                 </div>
             </div>
-            <Button text="Login" style="secondary"/>
+            <Link to="/main">
+                <Button text="Login" style="secondary"/>
+            </Link>
         </div>
 
      );
