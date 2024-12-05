@@ -7,7 +7,7 @@ const WelcomePage = () => {
     return ( 
         <div className="welcome-page">
 
-            <h2 className="welcome-page__title">Welcome to <span>WoofMeet</span></h2>
+            <h2 className="welcome-page__title">Welcome to <span className="welcome-page__title welcome-page__title--woof">Woof</span>Meet</h2>
 
             <div className="welcome-page__btns">
                 <Link to="/login">
