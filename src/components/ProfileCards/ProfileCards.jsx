@@ -9,15 +9,17 @@ import { motion } from "motion/react"
 
 const ProfileCards = () => {
 
+    const URL = import.meta.env.VITE_API_URL; 
     const [userInfo, setUserInfo] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null);
+    const userLocation = "Toronto";
     
 
     const fetchUserInfo = async () => {
         try{
-            const response = await fetch('/test.json')
-            const data = await response.json();
-            setUserInfo(data);
+            const response = await axios.get(`${URL}/dogs`)
+            // const data = await response.json();
+            setUserInfo(response.data);
         }catch(e){
             console.error(e);
         }
@@ -27,11 +29,11 @@ const ProfileCards = () => {
         fetchUserInfo();
     },[]);
 
-
+    const filteredUserLocation = userInfo.filter((user) => user.city === userLocation);
 
     return ( 
         <div className="profile-card__container">
-            {userInfo.map((user) => (
+            {filteredUserLocation.map((user) => (
                     <motion.div 
                     className="profile-card" 
                     key={user.id}
@@ -52,10 +54,10 @@ const ProfileCards = () => {
                         <div className="profile-card__right">
                             <p className="profile-card__info"> User: {user.username}</p>
                             <p className="profile-card__info"> Dog's Name: {user.dogName}</p>
-                            <p className="profile-card__info"> Breed: {user.dogBreed}</p>
-                            <p className="profile-card__info"> Age:{user.dogAge}</p>
-                            <p className="profile-card__info"> Personality: {user.dogPersonality}</p>
-                            <p className="profile-card__info"> Location: {user.location}</p>
+                            <p className="profile-card__info"> Breed: {user.breed}</p>
+                            <p className="profile-card__info"> Age: {user.age}</p>
+                            <p className="profile-card__info"> Personality: {user.personality}</p>
+                            <p className="profile-card__info"> Location: {user.city}</p>
                         </div>
                     </motion.div>
             ))}
