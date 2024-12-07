@@ -1,32 +1,45 @@
 import "./LoginPage.scss";
 
 import Button from "../../components/Button/Button";
+import InputField from "../../components/InputField/InputField";
 import { Link } from "react-router-dom";
+import axios from'axios';
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const LoginPage = () => {
+
+    const URL = import.meta.env.VITE_API_URL; 
+
+    const [username, setUsername] = useState("");
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try{
+            const loginResponse = await axios.get(`${URL}/dogs/${username}`)
+            const userCity = loginResponse.data.city;
+            console.log("Logging in with username:", username);
+            console.log("Navigating with city:", userCity);
+            navigate("/main", { state: { username, city: userCity } });
+        }
+        catch(error){
+            console.error(error)
+        }
+        // console.log("Logging in with username:", username);
+        // console.log("Navigating with city:", userCity);
+        // navigate("/main", { state: { username, city: userCity } });
+    };
+
     return ( 
-        <div className="login">
+        <form className="login" onSubmit={handleSubmit}>
             <h3 className="login__title">We are so glad you're back! Please enter your login details.</h3>
-            <div className="login__information">
-                <div className="login__field">
-                    <label className="login__label">
-                        Username:
-                        <input name="username" className="login__input"/>
-                    </label>
-                    <p>Forgot username?</p>
-                </div>
-                <div className="login__field">
-                    <label className="login__label">
-                        Password:
-                        <input name="password" className="login__input"/>
-                    </label>
-                    <p>Forgot Password?</p>
-                </div>
-            </div>
-            <Link to="/main">
-                <Button text="Login" style="secondary"/>
-            </Link>
-        </div>
+            <InputField text="Please enter your Username:" name="username" style="secondary" value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <InputField text="Please enter your Password:" name="password" style="secondary" type="password" />
+           
+            <Button type="submit" text="Login" style="secondary"/>
+     
+        </form>
 
      );
 }

@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import { motion } from "motion/react"
 
-const ProfileCards = () => {
+const ProfileCards = ({city}) => {
 
     const URL = import.meta.env.VITE_API_URL; 
     const [userInfo, setUserInfo] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null);
-    const userLocation = "Toronto";
+    // const userLocation = {city};
     
 
     const fetchUserInfo = async () => {
@@ -29,7 +29,7 @@ const ProfileCards = () => {
         fetchUserInfo();
     },[]);
 
-    const filteredUserLocation = userInfo.filter((user) => user.city === userLocation);
+    const filteredUserLocation = userInfo.filter((user) => user.city === city);
 
     return ( 
         <div className="profile-card__container">

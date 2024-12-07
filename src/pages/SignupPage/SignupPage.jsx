@@ -56,12 +56,16 @@ const SignupPage = () => {
 
             const userResponse = await axios.post(`${URL}/users`, userData);
             const userId = userResponse.data.id;
+            console.log("User created successfully:", userResponse.data);
 
             await axios.post(`${URL}/dogs`, { ...dogData, user_id: userId });
             
             console.log("User Data:", userData);
             console.log("Dog Data:", dogData);
-            navigate("/main");
+            console.log("Navigating with username:", formData.username);
+            console.log("Navigating with city:", formData.city);
+            navigate("/main", { state: { username: formData.username, city: formData.city } });
+            console.log("Navigation triggered");
         }catch(error){
             console.error(error);
         }
@@ -75,13 +79,13 @@ const SignupPage = () => {
             <p className="sign-up__title">Get ready to change your puppies life! Just fill out the information below to get started!</p>
             <InputField text="Please enter a Username" name="username" style="secondary" value={formData.username} onChange={handleChange}/>
             <InputField text="Please enter a Email" name="email" style="secondary" value={formData.email} onChange={handleChange}/>
-            <InputField text="Please enter a Password" name="password" style="secondary" value={formData.password} onChange={handleChange}/>
-            <InputField text="Please re-enter your desired password" name="password-check" style="secondary"/>
+            <InputField text="Please enter a Password" name="password" style="secondary" type="password" value={formData.password} onChange={handleChange}/>
+            <InputField text="Please re-enter your desired password" name="password-check" type="password" style="secondary"/>
             <InputField text=" What is the owner's name?" name="name" style="secondary" value={formData.name} onChange={handleChange}/>
             <InputField text="What is your dog's name?" name="dogName" style="secondary" value={formData.dogName} onChange={handleChange}/>
             <InputField text="How old is your dog?" name="dogAge" style="secondary" value={formData.dogAge} onChange={handleChange}/>
             <InputField text="What breed is your dog?" name="dogBreed" style="secondary" value={formData.dogBreed} onChange={handleChange}/>
-           <label className="sign-up__dropdown-label">
+            <label className="sign-up__dropdown-label">
                 What kind of personality does your dog have?
                 <select className="sign-up__dropdown" name="dogPersonality" value={formData.dogPersonality} onChange={handleChange}>   
                     <option value="" disabled>Select a personality</option>
