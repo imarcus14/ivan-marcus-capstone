@@ -9,7 +9,7 @@ const MenuTab = () => {
     const handleLogout = () =>{
         localStorage.removeItem("formData");
 
-        navigate("/login")
+        navigate("/")
     }
     return ( 
         <div className="menu-tab">

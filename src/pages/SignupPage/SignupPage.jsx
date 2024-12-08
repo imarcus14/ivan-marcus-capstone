@@ -13,6 +13,7 @@ const SignupPage = () => {
         username: '',
         email: '',
         password: '',
+        passwordCheck: '',
         name: '',
         dogName: '',
         dogAge: '',
@@ -34,8 +35,24 @@ const SignupPage = () => {
         }));
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!formData.name || !formData.dogName || !formData.password || !formData.username || !formData.email || !formData.dogAge || !formData.dogBreed || !formData.dogPersonality || !formData.city ) {
+            alert("A field is missing please double check inputs");
+            return; 
+        }
+        if (formData.passwordCheck != formData.password){
+            alert("Passwords do not match, please try again")
+            return;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(formData.email)){
+            alert("Please enter a proper email!")
+            return;
+        }
 
         localStorage.setItem("formData", JSON.stringify(formData));
         console.log("Form Data before sending:", formData);
@@ -86,7 +103,7 @@ const SignupPage = () => {
             <InputField text="Please enter a Username" name="username" style="secondary" value={formData.username} onChange={handleChange}/>
             <InputField text="Please enter a Email" name="email" style="secondary" value={formData.email} onChange={handleChange}/>
             <InputField text="Please enter a Password" name="password" style="secondary" type="password" value={formData.password} onChange={handleChange}/>
-            <InputField text="Please re-enter your desired password" name="password-check" type="password" style="secondary"/>
+            <InputField text="Please re-enter your desired password" name="passwordCheck" type="password" style="secondary" value={formData.passwordCheck} onChange={handleChange}/>
             <InputField text=" What is the owner's name?" name="name" style="secondary" value={formData.name} onChange={handleChange}/>
             <InputField text="What is your dog's name?" name="dogName" style="secondary" value={formData.dogName} onChange={handleChange}/>
             <InputField text="How old is your dog?" name="dogAge" style="secondary" value={formData.dogAge} onChange={handleChange}/>
