@@ -12,18 +12,28 @@ const Chat = () => {
     const socket = io(URL);
 
     const {username} = useParams();
+    const currentUser = "currentUsername";
+    const room = [currentUser, username].join("-");
+
     const [message, setMessage] = useState("");
     const [messages,setMessages] = useState([]);
 
     useEffect(() => {
-        socket.on("chat message", (msg) => {
-            setMessages((prevMessages) => [...prevMessages, msg]);
+
+        socket.emit("join room", {room});
+
+        socket.on("chat history", (history) => {
+            setMessages(history);
+        })
+
+        socket.on("chat message", ({sender, msg}) => {
+            setMessages((prevMessages) => [...prevMessages, {sender, msg}]);
         });
 
         return() => {
-            socket.off("chat message");
+            socket.disconnect();
         };
-    }, []);
+    }, [room]);
 
     const sendMesage = (e) => {
         e.preventDefault();
@@ -31,7 +41,8 @@ const Chat = () => {
             alert("Please input a valid message");
             return;
         }
-        socket.emit("chat message", message.trim());
+        console.log("Emitting message:", { room, message, sender: currentUser });
+        socket.emit("chat message", { room, message, sender: currentUser });
         setMessage("");
     };
 
@@ -49,7 +60,7 @@ const Chat = () => {
             <div className="chat__messages">
                 {messages.map((message, index) => (
                     <div className="chat__message" key={index}>
-                        {message}
+                        <p>{message.sender}:{message.msg}</p>
                         
                     </div>
                 ))}

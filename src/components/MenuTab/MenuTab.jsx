@@ -1,8 +1,16 @@
 import "./MenuTab.scss";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const MenuTab = () => {
+
+    const navigate = useNavigate();
+
+    const handleLogout = () =>{
+        localStorage.removeItem("formData");
+
+        navigate("/login")
+    }
     return ( 
         <div className="menu-tab">
             <Link className="menu-tab__options" to="">
@@ -11,9 +19,9 @@ const MenuTab = () => {
             <Link className="menu-tab__options" to="">
                 <p>Chats</p>
             </Link>
-            <Link className="menu-tab__options" to="/">
-                <p>Log Out</p>
-            </Link>
+            
+            <p className="menu-tab__options" onClick={handleLogout}>Log Out</p>
+            
         </div>
      );
 }

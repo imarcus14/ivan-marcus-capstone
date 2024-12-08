@@ -18,17 +18,17 @@ const LoginPage = () => {
         e.preventDefault();
         try{
             const loginResponse = await axios.get(`${URL}/dogs/${username}`)
-            const userCity = loginResponse.data.city;
+            const userData = loginResponse.data
+            localStorage.setItem("formData", JSON.stringify(userData));
+
+
             console.log("Logging in with username:", username);
-            console.log("Navigating with city:", userCity);
-            navigate("/main", { state: { username, city: userCity } });
+            navigate("/main");
         }
         catch(error){
             console.error(error)
         }
-        // console.log("Logging in with username:", username);
-        // console.log("Navigating with city:", userCity);
-        // navigate("/main", { state: { username, city: userCity } });
+
     };
 
     return ( 

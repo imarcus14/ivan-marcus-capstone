@@ -21,8 +21,9 @@ const SignupPage = () => {
         city: ''
     });
 
+
     const navigate = useNavigate();
-    // const [signUpValues, setSignUpValues] = useState(emptyFormFields)
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -35,6 +36,8 @@ const SignupPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        localStorage.setItem("formData", JSON.stringify(formData));
         console.log("Form Data before sending:", formData);
         const userData = {
             name: formData.name,
@@ -43,6 +46,8 @@ const SignupPage = () => {
             password: formData.password,
             city: formData.city
         }
+
+        
         
         const dogData = {
             name: formData.dogName,
@@ -51,6 +56,7 @@ const SignupPage = () => {
             personality: formData.dogPersonality,
             photo: "default-photo-url"   
         }
+        
 
         try{
 
@@ -64,7 +70,7 @@ const SignupPage = () => {
             console.log("Dog Data:", dogData);
             console.log("Navigating with username:", formData.username);
             console.log("Navigating with city:", formData.city);
-            navigate("/main", { state: { username: formData.username, city: formData.city } });
+            navigate("/main");
             console.log("Navigation triggered");
         }catch(error){
             console.error(error);

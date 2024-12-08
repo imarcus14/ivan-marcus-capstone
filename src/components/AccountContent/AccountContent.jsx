@@ -4,46 +4,20 @@ import { useEffect, useState } from "react";
 
 import axios from 'axios';
 
-const AccountContent = ({username}) => {
+const AccountContent = () => {
 
     const URL = import.meta.env.VITE_API_URL; 
 
     const [profile, setProfile] = useState(null);
-   
-    const [isLoading, setIsLoading] = useState(true);
-    console.log("Received username in AccountContent:", username);
-    if (profile) {
-        console.log("Profile name:", profile.name);
-    }
 
     useEffect(() => {
-        const fetchProfile = async () => {
-
-            if(!username) {
-                console.error("Username isn't provided");
-                setIsLoading(false);
-                return;
-            }
-
-            try{
-                console.log(`Fetching profile for username: ${username}`);
-                const profileResponse = await axios.get(`${URL}/dogs/${username}`);
-                console.log("API response:", profileResponse.data);
-                setProfile(profileResponse.data);
-
-                
-            }catch(error){
-                console.error(error);
-            }finally {
-                setIsLoading(false);
-            }
-            
-        };
-
-        fetchProfile();
-    }, [username]);
-
-    if (isLoading) return <p>Loading...</p>;
+        const storedFormData = localStorage.getItem("formData");
+        if (storedFormData) {
+            setProfile(JSON.parse(storedFormData));
+        }
+    }, []);
+   
+  
     if (!profile) return <p>Failed to load profile. Please try again later.</p>;
     
     return ( 

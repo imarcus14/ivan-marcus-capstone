@@ -12,13 +12,12 @@ const ProfileCards = ({city}) => {
     const URL = import.meta.env.VITE_API_URL; 
     const [userInfo, setUserInfo] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null);
-    // const userLocation = {city};
-    
+   
+    const userCity = JSON.parse(localStorage.getItem("formData"))?.city;
 
     const fetchUserInfo = async () => {
         try{
             const response = await axios.get(`${URL}/dogs`)
-            // const data = await response.json();
             setUserInfo(response.data);
         }catch(e){
             console.error(e);
@@ -29,7 +28,7 @@ const ProfileCards = ({city}) => {
         fetchUserInfo();
     },[]);
 
-    const filteredUserLocation = userInfo.filter((user) => user.city === city);
+    const filteredUserLocation = userInfo.filter((user) => user.city === userCity);
 
     return ( 
         <div className="profile-card__container">
