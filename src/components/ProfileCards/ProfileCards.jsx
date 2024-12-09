@@ -45,7 +45,7 @@ const ProfileCards = ({city}) => {
                     whileHover={{ scale: selectedCard === user.id ? 1.2 : 1.1 }}
                     transition={{ duration: 0.3 }}>
                         <div className="profile-card__left">
-                            <img src={user.profileImage} alt="Other peoples profile images"/>
+                            <img src={user.photo} alt="Other peoples profile images"/>
                             <Link to={`/chat/${user.username}`}>
                                 <Button text="Chat" style="quaternary"/>
                             </Link>
