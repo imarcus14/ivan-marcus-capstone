@@ -24,10 +24,9 @@ const MainPage = () => {
         <>
         <Header toggleMenuTab={toggleMenuTab}/>
         {menuOpen && <MenuTab/>}
-        {/* Need to add these props to component below: username, dogName, dogBreed, dogAge, dogPersonality, location */}
         <AccountContent username={username}/>
         
-        <ProfileCards city={city}/>
+        <ProfileCards/>
         </>
      );
 }

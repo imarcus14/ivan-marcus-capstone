@@ -138,7 +138,6 @@ const SignupPage = () => {
                     <option value="Reactive/Assertive">Reactive/Assertive</option>     
                     <option value="Calm/Agreeable">Calm/Agreeable</option>     
                 </select>
-                {/* The types of personalities were found from this link https://www.uel.ac.uk/about-uel/news/2024/february/ai-finds-five-dog-personality-types#:~:text=The%20results%20revealed%20five%20distinct,and%20%E2%80%9CCalm%2FAgreeable.%E2%80%9D */}
             </label>
             <InputField text="Where are you located? (City)" name="city" style="secondary" value={formData.city} onChange={handleChange}/>
             <input type="file" name="photo" onChange={handleFileChange}/>
