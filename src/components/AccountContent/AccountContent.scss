@@ -21,11 +21,13 @@
     }
 
     &__photo{
-        width: 50%;
+        width: 40%;
+        border-radius: 1rem;
+
     }
 
     &__info{
-        width: 50%;
+        width: 60%;
         display: flex;
         flex-direction: column;
         align-items: center;

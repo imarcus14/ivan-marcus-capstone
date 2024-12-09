@@ -11,8 +11,7 @@ const MainPage = () => {
 
     const location = useLocation();
     const {username, city} = location.state || {};
-    console.log("Username received in MainPage:", username);
-    console.log("City received in MainPage:", city);
+   
 
     const [menuOpen, setMenuOpen] = useState(false);
     
@@ -20,7 +19,6 @@ const MainPage = () => {
         setMenuOpen((past) => !past);
     
       }
-    console.log("Username received in MainPage:", username);
 
     return ( 
         <>

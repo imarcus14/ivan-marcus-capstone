@@ -19,7 +19,8 @@ const SignupPage = () => {
         dogAge: '',
         dogBreed: '',
         dogPersonality: '',
-        city: ''
+        city: '',
+        photo: null
     });
 
 
@@ -28,11 +29,20 @@ const SignupPage = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log(`Updating ${name} with value: ${value}`); 
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
         }));
+    };
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0]; 
+        if (file) {
+            setFormData((prevData) => ({
+                ...prevData,
+                photo: file, 
+            }));
+        }
     };
 
 
@@ -54,41 +64,51 @@ const SignupPage = () => {
             return;
         }
 
-        localStorage.setItem("formData", JSON.stringify(formData));
-        console.log("Form Data before sending:", formData);
-        const userData = {
-            name: formData.name,
-            username: formData.username,
-            email: formData.email,
-            password: formData.password,
-            city: formData.city
-        }
-
-        
-        
-        const dogData = {
-            name: formData.dogName,
-            age: formData.dogAge,
-            breed: formData.dogBreed,
-            personality: formData.dogPersonality,
-            photo: "default-photo-url"   
-        }
-        
-
         try{
+            const userData = {
+                name: formData.name,
+                username: formData.username,
+                email: formData.email,
+                password: formData.password,
+                city: formData.city
+            }
 
             const userResponse = await axios.post(`${URL}/users`, userData);
             const userId = userResponse.data.id;
-            console.log("User created successfully:", userResponse.data);
 
-            await axios.post(`${URL}/dogs`, { ...dogData, user_id: userId });
+            const dogFormData = new FormData();
+            dogFormData.append('name', formData.dogName);
+            dogFormData.append('age', formData.dogAge);
+            dogFormData.append('breed', formData.dogBreed);
+            dogFormData.append('personality', formData.dogPersonality);
+            dogFormData.append('user_id', userId);
+            if (formData.photo) {
+                dogFormData.append('photo', formData.photo);
+            } else {
+                console.warn("No photo uploaded.");
+            }
+
+            const dogResponse = await axios.post(`${URL}/dogs`, dogFormData, { 
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                }
+            });
+            const completeData = {
+                user: userData,
+                dog: {
+                    name: formData.dogName,
+                    age: formData.dogAge,
+                    breed: formData.dogBreed,
+                    personality: formData.dogPersonality,
+                    photo: dogResponse.data.photo, 
+                },
+            };
+
+            localStorage.setItem("signupData", JSON.stringify(completeData));
+
             
-            console.log("User Data:", userData);
-            console.log("Dog Data:", dogData);
-            console.log("Navigating with username:", formData.username);
-            console.log("Navigating with city:", formData.city);
+   
             navigate("/main");
-            console.log("Navigation triggered");
         }catch(error){
             console.error(error);
         }
@@ -119,9 +139,9 @@ const SignupPage = () => {
                     <option value="Calm/Agreeable">Calm/Agreeable</option>     
                 </select>
                 {/* The types of personalities were found from this link https://www.uel.ac.uk/about-uel/news/2024/february/ai-finds-five-dog-personality-types#:~:text=The%20results%20revealed%20five%20distinct,and%20%E2%80%9CCalm%2FAgreeable.%E2%80%9D */}
-           </label>
-           <InputField text="Where are you located? (City)" name="city" style="secondary" value={formData.city} onChange={handleChange}/>
-
+            </label>
+            <InputField text="Where are you located? (City)" name="city" style="secondary" value={formData.city} onChange={handleChange}/>
+            <input type="file" name="photo" onChange={handleFileChange}/>
 
            <Button type="submit" text="Sign Up" style="tertiary" />
 

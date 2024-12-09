@@ -41,7 +41,6 @@ const Chat = () => {
             alert("Please input a valid message");
             return;
         }
-        console.log("Emitting message:", { room, message, sender: currentUser });
         socket.emit("chat message", { room, message, sender: currentUser });
         setMessage("");
     };

@@ -13,7 +13,7 @@ const ProfileCards = ({city}) => {
     const [userInfo, setUserInfo] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null);
    
-    const userCity = JSON.parse(localStorage.getItem("formData"))?.city;
+    const userCity = JSON.parse(localStorage.getItem("signupData"))?.user?.city;
 
     const fetchUserInfo = async () => {
         try{

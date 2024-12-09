@@ -7,7 +7,7 @@ const MenuTab = () => {
     const navigate = useNavigate();
 
     const handleLogout = () =>{
-        localStorage.removeItem("formData");
+        localStorage.removeItem("signupData");
 
         navigate("/")
     }

@@ -16,17 +16,33 @@ const LoginPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try{
-            const loginResponse = await axios.get(`${URL}/dogs/${username}`)
-            const userData = loginResponse.data
-            localStorage.setItem("formData", JSON.stringify(userData));
+        try {
+    
+            const loginResponse = await axios.get(`${URL}/dogs/${username}`);
+            const backendData = loginResponse.data;
+    
+    
 
-
-            console.log("Logging in with username:", username);
+            const userData = {
+                user: {
+                    username: backendData.username,
+                    city: backendData.city,
+                },
+                dog: {
+                    name: backendData.dogName,
+                    age: backendData.dogAge,
+                    breed: backendData.dogBreed,
+                    personality: backendData.dogPersonality,
+                    photo: backendData.photo,
+                },
+            };
+    
+            localStorage.setItem("signupData", JSON.stringify(userData));
+    
             navigate("/main");
-        }
-        catch(error){
-            console.error(error)
+        } catch (error) {
+            console.error("Error during login process:", error);
+            alert("An error occurred while logging in. Please try again.");
         }
 
     };
