@@ -1,0 +1,28 @@
+@mixin tablet {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  
+  @mixin desktop {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  }
+
+
+.moo-lah-lah-regular {
+    font-family: "Moo Lah Lah", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.chewy-regular {
+    font-family: "Chewy", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  $woofblue: #0096FF;
+  $white: white;
+  $black: #232b2b

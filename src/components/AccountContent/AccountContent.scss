@@ -1,0 +1,48 @@
+@use '../../styles/partials/global.scss' as *;
+
+.account-content{
+    color: $black;
+    display: flex;
+    margin: auto;
+    margin-bottom: 1rem;
+    background-color: $white;
+    width: 80%;
+    height: 7rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-family: "Chewy";
+
+    @include tablet{
+        height: 12rem;
+    }
+
+    @include desktop{
+        width: 60%;
+    }
+
+    &__photo{
+        width: 40%;
+        border-radius: 1rem;
+        margin: 0.5rem;
+
+    }
+
+    &__info{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 0.5rem;
+        padding-right: 0.4rem;
+        font-size: 0.7rem;
+
+        @include tablet{
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        @include desktop{
+            font-size: 1.1rem;
+        }
+    }
+}

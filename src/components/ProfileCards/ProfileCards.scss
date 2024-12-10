@@ -1,0 +1,67 @@
+@use '../../styles/partials/global.scss' as *;
+
+.profile-card{
+    color: white;
+    display: flex;
+    margin: auto;
+    border: 0.063rem solid white;
+    background-color: #0096FF;
+    width: 80%;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-family: "Chewy";
+
+    @include tablet{
+        flex-direction: column;
+        width: 20%;
+        margin: 0.5rem;
+    }
+
+    @include desktop{
+        width: 20%;
+        align-items: center;
+    }
+
+    &__left{
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        align-items: center;
+    }
+
+    &__right{
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        font-size: 0.6rem;
+        @include tablet{
+            font-size: 0.8rem;
+        }
+
+        @include desktop{
+            font-size: 1rem;
+            align-items: center;
+        }
+        
+    }
+
+    &__container{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        @include tablet{
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 0;
+            justify-content: center;
+        }
+    }
+
+    &__photo{
+        width: 8rem;
+        height: 6rem;
+        border-radius: 1rem;
+        padding-bottom: 0.5rem;
+    }
+}

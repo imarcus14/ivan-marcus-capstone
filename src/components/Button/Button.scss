@@ -1,0 +1,72 @@
+@use '../../styles/partials/global.scss' as *;
+
+
+.button{
+
+    &--primary{
+        padding: 0.75rem 2rem;
+        border-radius: 3rem;
+        background-color: $woofblue;
+        border: none;
+        color: $white;
+        width: 8rem;
+        font-family: "Chewy";
+        font-size: 1rem;
+
+        @include tablet{
+            width: 10rem;
+            font-size: 1.2rem;
+        }
+
+        @include desktop{
+            padding: 1.5rem 0;
+            width: 15rem;
+            font-size: 1.5rem;
+
+        }
+    }
+
+    &--secondary{
+        padding: 0.5rem 5rem;
+        border-radius: 3rem;
+        border: none;
+        font-family: "Chewy";
+        background-color: $woofblue;
+        color: $white;
+        text-align: center;
+        justify-content: center; 
+        font-size: 1rem;
+
+    }
+
+    &--tertiary{
+        padding: 0.5rem 5rem;
+        border-radius: 3rem;
+        background-color: $woofblue;
+        color: white;
+        margin: 0 1rem 1rem 1rem;
+        font-family: "chewy";
+    }
+
+    &--quaternary{
+        padding: 0.25rem 2rem;
+        border: none;
+        border-radius: 0.75rem;
+        background-color: white;
+        color: #0096FF;
+        font-family: "Chewy";
+
+        @include tablet{
+            top: 0.5rem;
+            left: 1.4rem;
+        }
+
+        @include desktop{
+            left: 2rem;
+        }
+
+
+    }
+
+
+}
