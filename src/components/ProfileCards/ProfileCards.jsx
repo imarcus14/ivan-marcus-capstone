@@ -43,7 +43,7 @@ const ProfileCards = () => {
                         scale: selectedCard === user.id ? 1.2 : 1, 
                         zIndex: selectedCard === user.id ? 1 : 0, 
                     }}
-                    whileHover={{ scale: selectedCard === user.id ? 1.2 : 1.1 }}
+                    whileHover={{ scale: selectedCard === user.id ? 1.4 : 1.1 }}
                     transition={{ duration: 0.3 }}>
                         <div className="profile-card__left">
                             <img className="profile-card__photo" src={user.photo} alt="Other peoples profile images"/>

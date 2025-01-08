@@ -68,8 +68,8 @@
         padding: 0.25rem 2rem;
         border: none;
         border-radius: 0.75rem;
-        background-color: white;
-        color: #0096FF;
+        background-color: $woofwhite;
+        color: $woofblue;
         font-family: "Chewy";
 
         @include tablet{
