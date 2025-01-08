@@ -11,6 +11,7 @@
     border-radius: 1rem;
     font-size: 0.8rem;
     font-family: "Chewy";
+    z-index: 100;
 
     @include tablet{
         width: 80%;
@@ -54,7 +55,51 @@
         }
     }
 
+    &__ball-one{  
+        display: none;
+
+        @include tablet{
+            display: block;
+            position: relative;   
+            width: 10rem;
+            height: 10rem; 
+            z-index: 1;  
+            left: 4rem;
+            bottom: 2rem; 
+        }
+
+        @include desktop{
+             
+            left: 8rem;
+            bottom: 2rem;
+        }
+    }
+    &__ball-two{ 
+        
+        display: none;
+        @include tablet{
+            display: block;
+            position: relative;   
+            width: 10rem;
+            height: 10rem;  
+            z-index: 1;   
+            right: 4rem;
+            top: 4rem;
+        }
+
+        @include desktop{
+             
+            z-index: 1;   
+            right: 9rem;
+            top: 4rem;
+        }
+    }
+
     // &__specifics{
     //     font-size: 1rem;
     // }
+}
+
+.account{
+    display: flex;
 }
