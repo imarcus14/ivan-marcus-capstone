@@ -8,7 +8,7 @@ const Header = ({toggleMenuTab}) => {
         <>
         <div className="header">
             <Link className="header__link" to="/main">
-                <h1 className="header__logo"><span className="header__font">WOOF</span>meet</h1>
+                <h1 className="header__logo"><span className="header__font">WOOF</span>Meet</h1>
             </Link>
             <BurgerMenu toggleMenuTab={toggleMenuTab}/>
         </div>

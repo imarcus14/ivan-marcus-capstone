@@ -4,6 +4,8 @@ import Button from "../../components/Button/Button";
 import InputField from "../../components/InputField/InputField";
 import { Link } from "react-router-dom";
 import axios from'axios';
+import bone from "../../assets/icons/bone.jpg"
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -13,6 +15,13 @@ const LoginPage = () => {
 
     const [username, setUsername] = useState("");
     const navigate = useNavigate();
+
+    // useEffect(() => {
+    //     document.body.classList.add("no-scroll");
+    //     return () => {
+    //       document.body.classList.remove("no-scroll");
+    //     };
+    //   }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -48,14 +57,23 @@ const LoginPage = () => {
     };
 
     return ( 
-        <form className="login" onSubmit={handleSubmit}>
-            <h3 className="login__title">We are so glad you're back! Please enter your login details.</h3>
-            <InputField text="Please enter your Username:" name="username" style="secondary" value={username} onChange={(e) => setUsername(e.target.value)}/>
-            <InputField text="Please enter your Password:" name="password" style="secondary" type="password" />
-           
-            <Button type="submit" text="Login" style="secondary"/>
-     
-        </form>
+        <div className="login-page">
+            <form className="login" onSubmit={handleSubmit}>
+                <h3 className="login__title">We are so glad you're back! Please enter your login details.</h3>
+                <InputField text="Please enter your Username:" name="username" style="tertiary" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                <InputField text="Please enter your Password:" name="password" style="tertiary" type="password" />
+            
+                <Button type="submit" text="Login" style="secondary"/>
+        
+            </form>
+            <div>
+                <img className="bone_one" src={bone} alt="image of a cartoon bone"/>
+            </div>
+            <div>
+                <img className="bone_two" src={bone} alt="image of a cartoon bone"/>
+            </div>
+        </div>
+
 
      );
 }

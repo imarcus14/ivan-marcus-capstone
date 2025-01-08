@@ -120,14 +120,14 @@ const SignupPage = () => {
     return ( 
         <form className="sign-up" onSubmit={handleSubmit}>
             <p className="sign-up__title">Get ready to change your puppies life! Just fill out the information below to get started!</p>
-            <InputField text="Please enter a Username" name="username" style="secondary" value={formData.username} onChange={handleChange}/>
-            <InputField text="Please enter a Email" name="email" style="secondary" value={formData.email} onChange={handleChange}/>
-            <InputField text="Please enter a Password" name="password" style="secondary" type="password" value={formData.password} onChange={handleChange}/>
-            <InputField text="Please re-enter your desired password" name="passwordCheck" type="password" style="secondary" value={formData.passwordCheck} onChange={handleChange}/>
-            <InputField text=" What is the owner's name?" name="name" style="secondary" value={formData.name} onChange={handleChange}/>
-            <InputField text="What is your dog's name?" name="dogName" style="secondary" value={formData.dogName} onChange={handleChange}/>
-            <InputField text="How old is your dog?" name="dogAge" style="secondary" value={formData.dogAge} onChange={handleChange}/>
-            <InputField text="What breed is your dog?" name="dogBreed" style="secondary" value={formData.dogBreed} onChange={handleChange}/>
+            <InputField text="Please enter a Username:" name="username" style="secondary" value={formData.username} onChange={handleChange}/>
+            <InputField text="Please enter a Email:" name="email" style="secondary" value={formData.email} onChange={handleChange}/>
+            <InputField text="Please enter a Password:" name="password" style="secondary" type="password" value={formData.password} onChange={handleChange}/>
+            <InputField text="Please re-enter your desired password:" name="passwordCheck" type="password" style="secondary" value={formData.passwordCheck} onChange={handleChange}/>
+            <InputField text="Please enter the owners name:" name="name" style="secondary" value={formData.name} onChange={handleChange}/>
+            <InputField text="Please enter the dogs name:" name="dogName" style="secondary" value={formData.dogName} onChange={handleChange}/>
+            <InputField text="Please enter the dogs age:" name="dogAge" style="secondary" value={formData.dogAge} onChange={handleChange}/>
+            <InputField text="Please enter the dogs breed:" name="dogBreed" style="secondary" value={formData.dogBreed} onChange={handleChange}/>
             <label className="sign-up__dropdown-label">
                 What kind of personality does your dog have?
                 <select className="sign-up__dropdown" name="dogPersonality" value={formData.dogPersonality} onChange={handleChange}>   
@@ -139,8 +139,8 @@ const SignupPage = () => {
                     <option value="Calm/Agreeable">Calm/Agreeable</option>     
                 </select>
             </label>
-            <InputField text="Where are you located? (City)" name="city" style="secondary" value={formData.city} onChange={handleChange}/>
-            <input type="file" name="photo" onChange={handleFileChange}/>
+            <InputField text="Please enter your city:" name="city" style="secondary" value={formData.city} onChange={handleChange}/>
+            <input className="sign-up__upload" type="file" name="photo" onChange={handleFileChange}/>
 
            <Button type="submit" text="Sign Up" style="tertiary" />
 

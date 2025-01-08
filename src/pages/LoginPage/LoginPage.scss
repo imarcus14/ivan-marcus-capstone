@@ -1,7 +1,7 @@
 @use '../../styles/partials/global.scss' as *;
 
 .login{
-    color: white;
+    color: $woofgrey;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,11 +10,24 @@
     margin: auto;
     font-family: "Chewy";
 
+    @include tablet{
+        padding-top: 15rem;
+    }
+
+
     &__title{
         font-size: 1.2rem;
         padding: 2rem;
         text-align: center;
         font-weight: 100;
+
+        @include tablet{
+            font-size: 1.5rem;
+        }
+
+        @include desktop{
+            font-size: 2.2rem;
+        }
 
     }
 
@@ -55,3 +68,34 @@
         
     }
 }
+
+.bone_one{
+    display: none;
+    @include tablet{
+        display: block;
+        position: relative;
+        overflow: hidden;
+        right: 19rem;
+        bottom: 15rem;
+    }
+
+}
+.bone_two{
+
+    display: none;
+
+    @include tablet{
+        display: block;
+        position: relative;
+        overflow: hidden;
+        transform: scaleX(-1);
+        bottom: 73rem;
+        left: 50rem;
+    }
+
+}
+
+// .no-scroll {
+//     overflow: hidden;
+//   }
+

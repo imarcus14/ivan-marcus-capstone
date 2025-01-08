@@ -1,7 +1,7 @@
 @use '../../styles/partials/global.scss' as *;
 
 .sign-up{
-    color: white;
+    color: #72727E;
     font-family: "Chewy";
     display: flex;
     flex-direction: column;
@@ -12,19 +12,51 @@
 
     &__title{
         text-align: left;
-        padding-bottom: 1rem;
+        padding-bottom: 1.3rem;
+        font-size: 1rem;
+
+        @include tablet{
+            font-size: 1.3rem;
+        }
+
+        @include desktop{
+            font-size: 1.8rem;
+        }
     }
 
     &__dropdown{
         margin: 0.5rem 0 2rem 0;
+        color: $woofgrey;
         padding: 0.25rem;
         background-color: white;
         font-family: "Chewy";
+        border: 2px solid $woofgrey;
         border-radius: 0.5rem;
+
+        @include tablet{
+            margin: 0.5rem 0 2rem 0.5rem;
+        }
+
+        @include desktop{
+            font-size: 1.3rem;
+        }
+        
+    }
+
+    &__dropdown-label{
+
+        @include desktop{
+            font-size: 1.3rem;
+        }
     }
 
     &__photo{
         padding-bottom: 1rem;
         font-family: 'Chewy';
+    }
+
+    &__upload{
+        padding-bottom: 1rem;
+        font-family: "Chewy";
     }
 }

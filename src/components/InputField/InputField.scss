@@ -4,6 +4,10 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
+    
+    @include desktop{
+        font-size: 1.3rem;
+    }
 
     &__input--primary{
         padding: 0.5rem;
@@ -16,11 +20,31 @@
 
     &__input--secondary{
         font-family: "Chewy";
-        width: 55%;
-        border: none;
+        width: 95%;
+        border: 2px solid $woofgrey;
         padding: 0.25rem;
         border-radius: 0.5rem;
         margin: 0.5rem 0;
+
+        @include desktop{
+            font-size: 1.3rem;
+            
+        }
+        
+    }
+
+    &__input--tertiary{
+        font-family: "Chewy";
+        width: 95%;
+        border: 2px solid $woofgrey;
+        padding: 0.25rem;
+        border-radius: 0.5rem;
+        margin: 0.5rem 0;
+
+        @include desktop{
+            font-size: 1.6rem;   
+        }
+        
     }
 
 }
