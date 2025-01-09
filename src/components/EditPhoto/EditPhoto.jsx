@@ -1,9 +1,9 @@
-import "./EditProfile.scss";
+import "./EditPhoto.scss"
 
-import Button from "../../components/Button/Button";
-import { useState } from "react";
+import Button from "../Button/Button"
+import { useState } from "react"
 
-const EditProfile = ({label, value, onSave}) => {
+const EditPhoto = ({label, value, onSave}) => {
 
     const [edit, setEdit] = useState(false);
     const [inputValue, setInputValue] = useState(value);
@@ -13,15 +13,14 @@ const EditProfile = ({label, value, onSave}) => {
         setEdit(false);
     };
 
-
-
     return ( 
-        <div className="edit-field">
-            <h3 className="edit-field__title">{label}</h3>
+
+        <div className="edit-photo">
+            <h3 className="edit-photo__title">{label}</h3>
             {edit ? (
                 <div>
-                    <input className="edit-field__input" type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
-                    <div className="edit-field__buttons">
+                    <input className="edit-photo__input" type="file" value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
+                    <div className="edit-photo__buttons">
                         <Button onClick={handleSave} text="Save" style="six"/>
                         <Button onClick={() => setEdit(false)} text="Cancel" style="seven"/>
                     </div>
@@ -30,7 +29,7 @@ const EditProfile = ({label, value, onSave}) => {
             ) : (
 
                 <div>
-                    <span className="edit-field__value">{value}</span>
+                    <span>{value}</span>
                     <Button onClick={() => setEdit(true)} text="Edit" style="eight"/>
 
                     
@@ -41,4 +40,4 @@ const EditProfile = ({label, value, onSave}) => {
      );
 }
  
-export default EditProfile;
+export default EditPhoto;

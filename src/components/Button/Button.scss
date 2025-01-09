@@ -114,8 +114,10 @@
         font-size: 0.8rem;
 
         @include desktop{
-            padding: 1rem 7rem;
-            font-size: 1.3rem;
+            padding: 0.2rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 0.75rem;
+            height: 2.5rem;
         }
     }
     &--seven{
@@ -131,8 +133,10 @@
         font-size: 0.8rem;
 
         @include desktop{
-            padding: 1rem 7rem;
-            font-size: 1.3rem;
+            padding: 0.2rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 0.75rem;
+            height: 2.5rem;
         }
     }
     &--eight{
@@ -148,8 +152,8 @@
         margin-left: 0.5rem;
 
         @include desktop{
-            padding: 1rem 7rem;
-            font-size: 1.3rem;
+            padding: 0.5rem 3rem;
+            font-size: 1.2rem;
         }
     }
 

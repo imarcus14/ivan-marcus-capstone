@@ -28,7 +28,7 @@ const EditPersonality = ({label, value, onSave}) => {
                         <option value="Reactive/Assertive">Reactive/Assertive</option>     
                         <option value="Calm/Agreeable">Calm/Agreeable</option>     
                     </select>
-                    <div className="edit-field__buttons">
+                    <div className="edit-personality__buttons">
                         <Button onClick={handleSave} text="Save" style="six"/>
                         <Button onClick={() => setEdit(false)} text="Cancel" style="seven"/>
                     </div>
@@ -37,7 +37,7 @@ const EditPersonality = ({label, value, onSave}) => {
             ) : (
 
                 <div>
-                    <span>{value}</span>
+                    <span className="edit-personality__value">{value}</span>
                     <Button onClick={() => setEdit(true)} text="Edit" style="eight"/>
 
                     

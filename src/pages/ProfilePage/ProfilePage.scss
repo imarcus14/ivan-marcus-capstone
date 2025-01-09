@@ -10,6 +10,13 @@
     margin: auto;   
     padding-top: 2rem;
 
+    &__edit{
+        @include tablet{
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+
     &__section{
         border: 3px solid $woofgrey;
         border-radius: 1rem;
@@ -17,11 +24,23 @@
         background-color: $woofblue;
         font-size: 0.8rem;
         margin: 1.5rem 0;
+
+        @include tablet{
+            width: 40%;
+        }
+
+        @include desktop{
+            padding: 1.5rem;
+        }
     }
 
     &__section-title{
         text-decoration: underline 2px;
         padding-bottom: 0.5rem;
+
+        @include desktop{
+            font-size: 1.85rem;
+        }
     }
 
     // &__dog{

@@ -1,6 +1,6 @@
 @use '../../styles/partials/global.scss' as *;
 
-.edit-personality{
+.edit-photo{
     display: flex;
     gap: 0.5rem;
     padding-bottom: 0.5rem;
@@ -11,7 +11,6 @@
 
     &__title{
         font-size: 0.9rem;
-
         @include desktop{
             font-size: 1.55rem;
         }
@@ -24,18 +23,10 @@
         margin-bottom: 0.5rem;
         font-family: "Chewy";
         color: $woofgrey;
-
-        
     }
 
     &__buttons{
         display: flex;
         gap: 0.5rem;
-    }
-
-    &__value{
-        @include desktop{
-            font-size: 1.45rem;
-        }
     }
 }

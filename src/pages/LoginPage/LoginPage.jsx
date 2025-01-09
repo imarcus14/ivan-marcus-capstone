@@ -36,8 +36,10 @@ const LoginPage = () => {
                 user: {
                     username: backendData.username,
                     city: backendData.city,
+                    password: backendData.password,
                 },
                 dog: {
+                    id: backendData.dogId,
                     name: backendData.dogName,
                     age: backendData.dogAge,
                     breed: backendData.dogBreed,
@@ -47,6 +49,8 @@ const LoginPage = () => {
             };
     
             localStorage.setItem("signupData", JSON.stringify(userData));
+            console.log("Saved to localStorage:", JSON.parse(localStorage.getItem("signupData")));
+
     
             navigate("/main");
         } catch (error) {

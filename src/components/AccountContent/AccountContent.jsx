@@ -29,7 +29,8 @@ const AccountContent = () => {
         return <p>Failed to load profile. Please try again later.</p>;
     }
 
-    
+    console.log(profile.dog.id);
+    console.log(JSON.parse(localStorage.getItem("signupData")));
     const imageURL = !profile.dog.photo.startsWith('http')  ? `${URL}/${profile.dog.photo}` : profile.dog.photo;
     
     return ( 
