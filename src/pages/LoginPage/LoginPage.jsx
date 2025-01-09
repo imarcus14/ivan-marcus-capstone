@@ -14,6 +14,7 @@ const LoginPage = () => {
     const URL = import.meta.env.VITE_API_URL; 
 
     const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
     // useEffect(() => {
@@ -29,6 +30,11 @@ const LoginPage = () => {
     
             const loginResponse = await axios.get(`${URL}/dogs/${username}`);
             const backendData = loginResponse.data;
+
+            if (backendData.password !== password) {
+                alert("Wrong password. Please try again!");
+                return;
+            };
     
     
 
@@ -60,12 +66,25 @@ const LoginPage = () => {
 
     };
 
+    // const checkUser = () => {
+    //     const userCheck = users.find(users => (users.username === user.username && users.password === user.password));
+    //     if(userCheck) {
+    //         console.log("Login successful");
+    //       }else {
+    //         console.log("Wrong password or username");
+    //       }
+    // }
+
+    // useEffect(() => {
+    //     checkUser(users)
+    //       }, [user.username, user.password])
+
     return ( 
         <div className="login-page">
             <form className="login" onSubmit={handleSubmit}>
                 <h3 className="login__title">We are so glad you're back! Please enter your login details.</h3>
                 <InputField text="Please enter your Username:" name="username" style="tertiary" value={username} onChange={(e) => setUsername(e.target.value)}/>
-                <InputField text="Please enter your Password:" name="password" style="tertiary" type="password" />
+                <InputField text="Please enter your Password:" name="password" style="tertiary" type="password" onChange={(e) => setPassword(e.target.value)}/>
             
                 <Button type="submit" text="Login" style="secondary"/>
         

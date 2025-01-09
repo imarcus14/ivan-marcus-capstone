@@ -43,6 +43,10 @@
         }
     }
 
+    &__photos{
+        display: flex;
+    }
+
     // &__dog{
     //     border: 3px solid $woofgrey;
     //     border-radius: 1rem;
@@ -52,4 +56,31 @@
     //     margin: 1.5rem 0;
     // }
 
+}
+
+.toy-1{
+    display: none;
+    @include tablet{
+        display: block;
+        position: relative;
+        height: 20rem;
+        bottom: 6rem;
+        z-index: -1;
+    }
+}
+.toy-2{
+    display: none;
+    @include tablet{
+        display: block;
+        position: relative;
+        height: 20rem;
+        transform: scaleX(-1);
+        z-index: -1;
+        left: 8rem;
+        bottom: 31rem;
+    }
+    @include desktop{
+        left: 20rem;
+        bottom: 42rem;
+    }
 }

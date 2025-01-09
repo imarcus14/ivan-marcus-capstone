@@ -2,7 +2,7 @@
 
 
 .chat{
-    color: white;
+    color: $woofgrey;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,9 +42,9 @@
         display: flex;
         width: 100%;
         justify-content: center;
-        padding: 0.5rem 0;
+        padding: 0.75rem 0;
         gap: 0.5rem;
-        background-color: #0096FF;
+        background-color: $woofblue;
         border-top-left-radius: 0.75rem;
         border-top-right-radius: 0.75rem;
     }
@@ -55,16 +55,25 @@
         padding-left: 0.5rem;
         border-radius: 0.75rem;
         border: none;
+        background-color: $woofwhite;
+        color: $woofgrey;
     }
 
     &__btn{
         width: 20vw;
         border-radius: 0.75rem;
         border: none;
-        background-color: white;
+        background-color: $woofwhite;
         font-family: "Chewy";
-        color: $woofblue;
+        color: $woofgrey;
     }
 
 
+
+
 }
+
+
+
+
+

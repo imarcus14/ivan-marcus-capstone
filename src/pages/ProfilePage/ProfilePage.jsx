@@ -9,6 +9,7 @@ import EditProfile from "../../components/EditProfile/EditProfile";
 import Header from "../../components/Header/Header";
 import MenuTab from "../../components/MenuTab/MenuTab";
 import axios from "axios";
+import toy from "../../assets/icons/rubber-toy.jpg";
 import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
@@ -49,6 +50,7 @@ const ProfilePage = () => {
                 await axios.put(`${URL}/dogs/${profile.user.username}`, {
                     name: profile.user.username,   
                     city: profile.user.city,
+                    password: profile.user.password,
                     dogName: profile.dog.name,    
                     dogAge: profile.dog.age,
                     dogBreed: profile.dog.breed,
@@ -87,8 +89,11 @@ const ProfilePage = () => {
                 </div>
             </div>
             {/* <button onClick={handleSubmit}>Save All Changes</button> */}
-            <Button onClick={handleSubmit} text="Save All Changes" style="five"/>
-            
+            <Button onClick={handleSubmit} text="Save All Changes" style="five"/>    
+        </div>
+        <div className="profile-page__photos">
+            <img className="toy-1" src={toy} alt="dog toy"/>
+            <img className="toy-2" src={toy} alt="dog toy"/>
         </div>
         
         </>
