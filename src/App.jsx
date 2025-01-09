@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ChatPage from './pages/ChatPage/ChatPage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import MainPage from './pages/MainPage/MainPage'
+import ProfilePage from './pages/ProfilePage/ProfilePage'
 import SignupPage from './pages/SignupPage/SignupPage'
 import WelcomePage from './pages/WelcomePage/WelcomePage'
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/signup" element={<SignupPage/>}/>
         <Route path="/main" element={<MainPage/>}/>
+        <Route path="/profile" element={<ProfilePage/>}/>
         <Route path="/chat/:username" element={<ChatPage/>}/>
       </Routes>
     </BrowserRouter>

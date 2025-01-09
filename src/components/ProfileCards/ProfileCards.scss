@@ -10,9 +10,11 @@
     border-radius: 1rem;
     font-size: 0.8rem;
     font-family: "Chewy";
+    
     &:hover{
         // background-color: #9EB0BE;
         border: 3px solid #9EB0BE;
+        
     }
 
     @include tablet{

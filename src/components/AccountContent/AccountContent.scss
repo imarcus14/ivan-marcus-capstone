@@ -11,7 +11,7 @@
     border-radius: 1rem;
     font-size: 0.8rem;
     font-family: "Chewy";
-    z-index: 100;
+    
 
     @include tablet{
         width: 80%;
@@ -63,7 +63,7 @@
             position: relative;   
             width: 10rem;
             height: 10rem; 
-            z-index: 1;  
+            z-index: -1;  
             left: 4rem;
             bottom: 2rem; 
         }
@@ -82,7 +82,7 @@
             position: relative;   
             width: 10rem;
             height: 10rem;  
-            z-index: 1;   
+            z-index: -1;   
             right: 4rem;
             top: 4rem;
         }

@@ -13,7 +13,7 @@ const MenuTab = () => {
     }
     return ( 
         <div className="menu-tab">
-            <Link className="menu-tab__options" to="">
+            <Link className="menu-tab__options" to="/profile">
                 <p>Profile</p>
             </Link>
             <Link className="menu-tab__options" to="">

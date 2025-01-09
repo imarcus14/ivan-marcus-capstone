@@ -1,0 +1,36 @@
+@use '../../styles/partials/global.scss' as *;
+
+
+.profile-page{
+    font-family: "Chewy";
+    color: $woofgrey;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;   
+    padding-top: 2rem;
+
+    &__section{
+        border: 3px solid $woofgrey;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        background-color: $woofblue;
+        font-size: 0.8rem;
+        margin: 1.5rem 0;
+    }
+
+    &__section-title{
+        text-decoration: underline 2px;
+        padding-bottom: 0.5rem;
+    }
+
+    // &__dog{
+    //     border: 3px solid $woofgrey;
+    //     border-radius: 1rem;
+    //     padding: 0.5rem;
+    //     background-color: $woofblue;
+    //     font-size: 0.8rem;
+    //     margin: 1.5rem 0;
+    // }
+
+}
