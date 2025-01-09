@@ -1,5 +1,6 @@
 import "./EditProfile.scss";
 
+import Button from "../../components/Button/Button";
 import { useState } from "react";
 
 const EditProfile = ({label, value, onSave}) => {
@@ -16,18 +17,23 @@ const EditProfile = ({label, value, onSave}) => {
 
     return ( 
         <div className="edit-field">
-            <h3>{label}</h3>
+            <h3 className="edit-field__title">{label}</h3>
             {edit ? (
                 <div>
-                    <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
-                    <button onClick={handleSave}>Save</button>
-                    <button onClick={() => setEdit(false)}>Cancel</button>
+                    <input className="edit-field__input" type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
+                    <div className="edit-field__buttons">
+                        <Button onClick={handleSave} text="Save" style="six"/>
+                        <Button onClick={() => setEdit(false)} text="Cancel" style="seven"/>
+                    </div>
+
                 </div>
             ) : (
 
                 <div>
                     <span>{value}</span>
-                    <button onClick={() => setEdit(true)}>Edit</button>
+                    <Button onClick={() => setEdit(true)} text="Edit" style="eight"/>
+
+                    
                 </div>
             )}
         </div>

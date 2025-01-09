@@ -1,0 +1,27 @@
+@use '../../styles/partials/global.scss' as *;
+
+
+.edit-field{
+    display: flex;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.8rem;
+    align-items: baseline;
+
+
+    &__title{
+        font-size: 0.9rem;
+    }
+
+    &__input{
+        border-radius: 1rem;
+        border: none;
+        height: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__buttons{
+        display: flex;
+        gap: 0.5rem;
+    }
+}

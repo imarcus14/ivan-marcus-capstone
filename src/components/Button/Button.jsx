@@ -2,9 +2,10 @@ import "./Button.scss"
 
 import { motion } from "motion/react";
 
-const Button = ({text, style}) => {
+const Button = ({text, style, onClick}) => {
     return ( 
-        <motion.button className={`button button--${style}`}
+        <motion.button className={`button button--${style}`} 
+        onClick={onClick}
         initial={{scale: 1}}
         whileHover={{scale: 1.1}}
         whileTap={{scale: 0.9}}
